@@ -49,7 +49,7 @@ WORKDIR /mcsmanager
 CMD npm start
 EXPOSE 23333 10022
 ```
-###### 2.在当前目录下使用命令**docker build -t  mcsmanager .**
+###### 2.在当前目录下使用命令**docker build -t  mcsmanager .
 
 **嫌git clone慢的同学可以使用下面的dockerfile,但是必须得先把双羽大佬的源码给克隆到当前目录才可以：**
 ```FROM centos:7
@@ -75,4 +75,3 @@ EXPOSE 23333 10022
 
 ##### 结语：
 ##### 对的 你没看错 我写了 很多层的RUN（可能这就是菜吧哈哈哈哈
-
