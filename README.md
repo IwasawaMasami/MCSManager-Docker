@@ -32,6 +32,9 @@
 
 
 
+
+
+
 docker images 【查看已有镜像】
 
 docker ps 【查看容器进程】
@@ -45,8 +48,6 @@ docker start 容器名字 【开始运行容器】
 docker stop 【停止正在运行容器】
 
 docker restart 【重启容器】
-
-
 
 每个参数的含义：
 
