@@ -110,37 +110,21 @@ EXPOSE 23333 10022
 
 ```
 FROM centos:7
-
 LABEL maintainer="www.lazytoki.cn"
-
 RUN yum -y install wget 
-
 RUN wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo \
-
-​    && yum makecache \
-
-​           update
-
+    && yum makecache \
+           update
 RUN yum -y install screen \
-
-​    git \
-
-​    curl 
-
+    git \
+    curl 
 RUN curl --silent --location https://rpm.nodesource.com/setup_10.x | bash - \
-
-​    && yum install -y nodejs 	
-
-COPY mcsmanager /root/mcsmanager
-
-RUN cd /root/mcsmanager \
-
-​    && npm install 
-
-WORKDIR /root/mcsmanager
-
+    && yum install -y nodejs 	
+COPY mcsmanager /mcsmanager
+RUN cd mcsmanager \
+    && npm install 
+WORKDIR /mcsmanager
 CMD npm start
-
 EXPOSE 23333 10022
 
 
