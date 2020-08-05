@@ -34,14 +34,14 @@
 
 
 
-
+\n
 docker images 【查看已有镜像】
 
 docker ps 【查看容器进程】
 
 docker logs -f 容器名字 【查看容器内的日志】
 
-docker exec -i 容器名字 rcon-cli 【进入服务端consle界面】
+docker exec -it 容器名字 bash 【进入consle界面】
 
 docker start 容器名字 【开始运行容器】
 
