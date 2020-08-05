@@ -26,7 +26,7 @@
 
 ####  第一种：直接使用docker命令部署（省事）：
 
-**docker run -it -d --name=mcsm -p 23333:23333 -v ~/mcsmanager:/root/mcsmanager tookizhang/mcsmanager:gitonline**
+**docker run -it -d --name=mcsm -p 23333:23333 -v ~/mcsmanager:/~/mcsmanager tookizhang/mcsmanager**
 
 
 
