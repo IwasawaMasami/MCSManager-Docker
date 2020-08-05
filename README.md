@@ -26,15 +26,14 @@
 
 ####  第一种：直接使用docker命令部署（省事）：
 
-**docker run -it -d --name=mcsm -p 23333:23333 -v ~/mcsm:/root/mcsmanager tookizhang/mcsmanager:gitonline**
-
-**docker run -it -d --name=mcsm -p 23333:23333 -v ~/mcsm:/root/mcsmanager tookizhang/mcsmanager:gitlocal**
+**docker run -it -d --name=mcsm -p 23333:23333 -v ~/mcsmanager:/root/mcsmanager tookizhang/mcsmanager:gitonline**
 
 
 
 
 
-\n
+
+
 docker images 【查看已有镜像】
 
 docker ps 【查看容器进程】
@@ -48,6 +47,8 @@ docker start 容器名字 【开始运行容器】
 docker stop 【停止正在运行容器】
 
 docker restart 【重启容器】
+
+
 
 每个参数的含义：
 
