@@ -26,7 +26,7 @@
 
 ####  第一种：直接使用docker命令部署（省事）：
 
-**docker run -it -d --name=mcsm -p 23333:23333 -v ~/mcsmanager:/~/mcsmanager tookizhang/mcsmanager**
+**docker run -it -d --name=mcsm -p 23333:23333 -v ~/自定义宿主机目录:/root/mcsmanager/你想要挂载的目录 tookizhang/mcsmanager**
 
 
 
@@ -70,37 +70,24 @@ docker restart 【重启容器】
 
 ```
 FROM centos:7
-
 LABEL maintainer="www.lazytoki.cn"
-
-RUN yum -y install wget 
-
+RUN yum -y install wget
 RUN wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo \
-
-​    && yum makecache \
-
-​           update
-
+    && yum makecache \
+           update
 RUN yum -y install screen \
-
-​    git \
-
-​    curl 
-
+    git \
+    curl
 RUN curl --silent --location https://rpm.nodesource.com/setup_10.x | bash - \
-
-​    && yum install -y nodejs 	
-
-RUN git clone https://github.com/suwings/mcsmanager.git 
-
+    && yum install -y nodejs
+RUN git clone https://github.com/suwings/mcsmanager.git
 RUN cd mcsmanager \
-
-​    && npm install 
-
-WORKDIR /mcsmanager	
-
-CMD npm start
-
+    && npm install
+WORKDIR /root/mcsmanager
+RUN cd /root/mcsmanager \
+    && npm install
+WORKDIR /root/mcsmanager
+ENTRYPOINT npm start
 EXPOSE 23333 10022
 ```
 
@@ -111,20 +98,21 @@ EXPOSE 23333 10022
 ```
 FROM centos:7
 LABEL maintainer="www.lazytoki.cn"
-RUN yum -y install wget 
+RUN yum -y install wget
 RUN wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo \
     && yum makecache \
            update
 RUN yum -y install screen \
     git \
-    curl 
+    curl
 RUN curl --silent --location https://rpm.nodesource.com/setup_10.x | bash - \
-    && yum install -y nodejs 	
-COPY mcsmanager /mcsmanager
-RUN cd mcsmanager \
-    && npm install 
-WORKDIR /mcsmanager
-CMD npm start
+    && yum install -y nodejs
+COPY mcsmanager /root/mcsmanager 
+WORKDIR /root/mcsmanager
+RUN cd /root/mcsmanager \
+    && npm install
+WORKDIR /root/mcsmanager
+ENTRYPOINT npm start
 EXPOSE 23333 10022
 
 
