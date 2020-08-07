@@ -29,8 +29,11 @@
 ```shell
 docker run -it -d --name=mcsm  -v ~/自定义宿主机目录:/root/mcsmanager/你想要挂载的容器目录 tookizhang/mcsmanager
 ```
-**镜像里默认开放了默认游戏服务端端口，面板访问端以及和文件传输端口，如果需要批量开放端口请加入参数 -p XXXXX-XXXXX:XXXXX-XXXXX eg: -p docker run -it -d --name mcsm -p 25565:25565 -p 23333:23333 -p 25566-25570:25566-25570 -v ~/mcsmamager:/root/mcsmanager/server mcsmanager**
-
+**镜像里默认开放了默认游戏服务端端口，面板访问端以及和文件传输端口，如果需要批量开放端口请加入参数 -p XXXXX-XXXXX:XXXXX-XXXXX 
+eg:
+```shell
+docker run -it -d --name mcsm -p 25565:25565 -p 23333:23333 -p 25566-25570:25566-25570 -v ~/mcsmamager:/root/mcsmanager/server mcsmanager**
+```
 
 
 
