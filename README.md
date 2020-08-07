@@ -26,8 +26,9 @@
 
 ####  第一种：直接使用docker命令部署（省事）：
 
-**docker run -it -d --name=mcsm -p 23333:23333 -v ~/自定义宿主机目录:/root/mcsmanager/你想要挂载的目录 tookizhang/mcsmanager**
-
+```shell
+docker run -it -d --name=mcsm -p 23333:23333 -v ~/自定义宿主机目录:/root/mcsmanager/你想要挂载的容器目录 tookizhang/mcsmanager
+```
 
 
 
@@ -77,7 +78,8 @@ RUN wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Cen
            update
 RUN yum -y install screen \
     git \
-    curl
+    curl \
+    java
 RUN curl --silent --location https://rpm.nodesource.com/setup_10.x | bash - \
     && yum install -y nodejs
 RUN git clone https://github.com/suwings/mcsmanager.git
@@ -91,7 +93,10 @@ ENTRYPOINT npm start
 EXPOSE 23333 10022
 ```
 
-##### 2.在当前目录下使用命令**docker build -t  mcsmanager .
+##### 2.在当前目录下使用命令
+```shell
+docker build -t  mcsmanager .
+```
 
 **嫌git clone慢的同学可以使用下面的dockerfile,但是必须得先把双羽大佬的源码给克隆到当前目录才可以：**
 
@@ -104,7 +109,8 @@ RUN wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Cen
            update
 RUN yum -y install screen \
     git \
-    curl
+    curl \
+    java
 RUN curl --silent --location https://rpm.nodesource.com/setup_10.x | bash - \
     && yum install -y nodejs
 COPY mcsmanager /root/mcsmanager 
