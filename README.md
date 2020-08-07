@@ -90,7 +90,7 @@ RUN cd /root/mcsmanager \
     && npm install
 WORKDIR /root/mcsmanager
 ENTRYPOINT npm start
-EXPOSE 23333 10022
+EXPOSE 23333 10022 25565
 ```
 
 ##### 2.在当前目录下使用命令
@@ -119,9 +119,7 @@ RUN cd /root/mcsmanager \
     && npm install
 WORKDIR /root/mcsmanager
 ENTRYPOINT npm start
-EXPOSE 23333 10022
-
-
+EXPOSE 23333 10022 25565
 ```
 
 **最后构建完成后，如第一种方法所示运行镜像即可**
