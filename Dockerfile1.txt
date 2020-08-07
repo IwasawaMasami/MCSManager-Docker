@@ -6,7 +6,8 @@ RUN wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Cen
            update
 RUN yum -y install screen \
     git \
-    curl
+    curl \
+    java
 RUN curl --silent --location https://rpm.nodesource.com/setup_10.x | bash - \
     && yum install -y nodejs
 COPY mcsmanager /root/mcsmanager 
@@ -15,4 +16,4 @@ RUN cd /root/mcsmanager \
     && npm install
 WORKDIR /root/mcsmanager
 ENTRYPOINT npm start
-EXPOSE 23333 10022
+EXPOSE 23333 10022 25565
